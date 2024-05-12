@@ -60,6 +60,9 @@
     width: 100%;
 
 }
+.btn {
+    color: #fff;
+}
 
 /* Login form */
 .login-form {
@@ -116,7 +119,11 @@ button[type="submit"] {
     cursor: pointer;
     margin: center;
 }
-
+.link{
+    color: #DE5D01;
+    text-decoration: underline;
+    font-weight: bold;
+}
 
 /* Media queries for responsiveness */
 @media screen and (max-width: 100%) {

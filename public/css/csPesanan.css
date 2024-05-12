@@ -58,6 +58,9 @@
     margin-top: 18px;
 }
 
+
+
+
 /* Sidebar */
 .sidebar {
     margin-top: 89px;
@@ -177,24 +180,25 @@
   .harga {
     position: absolute;
     bottom: 24px; /* Atur elemen harga sejajar dengan elemen hapus */
-    right: 10px; /* Atur elemen harga sejajar dengan elemen hapus */
+    right: 50px; /* Atur elemen harga sejajar dengan elemen hapus */
     font-family: "Poppins", sans-serif;
     font-weight: bold;
     color: #DE5D01;
-    font-size: 34px;
+    font-size: 30px;
   }
   
   .jumlah {
     display: flex;
     align-items: center;
-    
+    font-size: larger;
+    font-weight: bold;
   }
   
   .jumlah span {
     height: 35px;
-    width: 35px;
-    border: 2px solid #DE5D01; /* Tambahkan border hanya pada angka */
-    padding: 6px 18px; /* Sesuaikan padding agar tetap sejajar dengan tombol */
+    width: 50px;
+    border: 2px solid #DE5D01; 
+    padding: 0px 9px; /* Sesuaikan padding agar tetap sejajar dengan tombol */
     margin: 0 5px; /* Beri jarak antara angka dan tombol */
   }
 
@@ -207,7 +211,7 @@
   }
   .jumlah button:hover {
     cursor: pointer;
-    color: #DE5D01; /* Mengubah warna kursor menjadi biru saat kursor berada di atas tombol */
+  
   }
 
   /* Pesan */
@@ -253,7 +257,7 @@
   
   .pesan-button {
     position: absolute;
-    bottom: -90px;
+    bottom: -80px;
     right: 40px;
     width: 160px;
     background-color: #DE5D01;
@@ -269,8 +273,8 @@
   }
   .kembali-button {
     position: absolute;
-    bottom: -30px;
-    left: 10px;
+    bottom: -260px;
+    left: -120px;
     background-color: #DE5D01;
     color: white;
     border: none;

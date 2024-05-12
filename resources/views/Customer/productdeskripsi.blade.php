@@ -1,4 +1,3 @@
-<!-- resources/views/customer/login.blade.php -->
 
 @extends('layouts.app')
 

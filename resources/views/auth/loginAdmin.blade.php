@@ -29,8 +29,8 @@
                 <div class="card-body login-form">
                     <p class="subtext3">Anda akan masuk sebagai:</p>
                     <div class="button-container">
-                        <a href="{{ route('login.Customer') }}" class="btn btn-warning">Customer</a>
-                        <a href="{{ route('login.Admin') }}" class="btn btn-warning">Admin</a>
+                        <button class="btn btn-warning" style="background-color: #DE5D01; color: white;" onclick="redirectTo('{{ route('login.Customer') }}')">Customer</button>
+                        <button class="btn btn-warning" style="background-color: #DE5D01; color: white;" onclick="redirectTo('{{ route('login.Admin') }}')">Admin</button>
                     </div>
                     <form method="POST" action="{{ route('login.post') }}">
                         @csrf
@@ -54,5 +54,8 @@
             default:
                 break;
         }
+    }
+    function redirectTo(url) {
+        window.location.href = url;
     }
     </script>

@@ -49,15 +49,14 @@
     width: 800px;
     margin-top: 20px;
 }
-.bi-cart{
-    margin-left: 15px;
-    margin-right: 26px;
-    margin-top: 18px;
-}
-.bi-journal-text{
-    margin-top: 18px;
-}
 
+.iconF {
+  width: 44px;
+  height: 48px;
+  display: flex;
+  margin-right: 90px;
+  margin-top: 10px;
+}
 /* Sidebar */
 .sidebar {
     margin-top: 89px;
@@ -181,7 +180,11 @@
     font-family: "Poppins", sans-serif;
     font-weight: bold;
     color: #293859;
-    font-size: 34px;
+    font-size: 24px;
+    margin-right: 50px;
+  }
+  .Total{
+    margin-top: 150px;
   }
   .Total-harga-ds{
     position: absolute;
@@ -190,7 +193,7 @@
     font-family: "Poppins", sans-serif;
     font-weight: bold;
     color: #DE5D01;
-    font-size: 34px;
+    font-size: 24px;
   }
   .Total-harga{
     position: absolute;
@@ -199,19 +202,21 @@
     font-family: "Poppins", sans-serif;
     font-weight: bold;
     color: #DE5D01;
-    font-size: 34px;
+    font-size: 24px;
+    margin-right: 50px;
   }
   .jumlah {
     display: flex;
     align-items: center;
-    
+    font-size: larger;
+    font-weight: bold;
   }
   
   .jumlah span {
     height: 35px;
-    width: 35px;
-    border: 2px solid #DE5D01; /* Tambahkan border hanya pada angka */
-    padding: 6px 18px; /* Sesuaikan padding agar tetap sejajar dengan tombol */
+    width: 50px;
+    border: 2px solid #DE5D01; 
+    padding: 0px 9px; /* Sesuaikan padding agar tetap sejajar dengan tombol */
     margin: 0 5px; /* Beri jarak antara angka dan tombol */
   }
 
@@ -224,39 +229,39 @@
   }
   .jumlah button:hover {
     cursor: pointer;
-    color: #DE5D01; /* Mengubah warna kursor menjadi biru saat kursor berada di atas tombol */
+  
+  }
+  
+  .left-button,
+  .right-button {
+      padding: 8px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 200px;
+      height: 40px;
+      font-weight: bold;
+  }
+  
+  .left-button {
+      background-color: white;
+      color: #DE5D01;
+      border: 2px solid #DE5D01;
+      margin-left: 640px;
+      float: left; /* Mengatur tombol "Beri rating & review" ke kiri */
   }
   
   .right-button {
-    background-color: #DE5D01;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    cursor: pointer;
-    width: 200px;
-    height: 40px;
-    font-weight: bold;
-    
-  }
-  .left-button {
-    background-color: white;
-    color: #DE5D01;
-    border: 2px solid #DE5D01; /* Perubahan: menambahkan solid dan warna border */
-    border-radius: 5px;
-    padding: 8px 20px;
-    cursor: pointer;
-    margin-left: 660px;
-    width: 200px;
-    height: 40px;
-    font-weight: bold;
+      background-color: #DE5D01;
+      color: white;
+      border: none;
+      float: right; /* Mengatur tombol "Beli lagi" ke kanan */
   }
   
-  .left-button:hover,
-  .right-button:hover {
-    background-color: #ff7b33;
+  .button-container {
+      /* overflow: hidden;  */
+      margin-top: 150px;
   }
-
+  
   .kembali-button {
     position: absolute;
     bottom: 80px;

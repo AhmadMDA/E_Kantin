@@ -35,11 +35,8 @@
           
         </div>
         <span class="customer-name">Yu Ji Min</span>
-        <button class="menu-button" onclick="goToRoute('BerandaAdmin')">Semua Menu</button>
-        <button class="menu-button" onclick="goToRoute('LaporanPenjualan')">Laporan penjualan</button>
-        <button class="menu-button" onclick="goToRoute('InputLaporan')">Input laporan penjualan</button>
-        <button class="menu-button" onclick="goToRoute('KelolaPesanan')">Kelola pesanan</button>
-        <button class="menu-button" onclick="goToRoute('KelolaAkunCustomer')">Kelola akun customer</button>
+        <button class="menu-button" onclick="goToRoute('homepage')">Semua Menu</button>
+        <button class="menu-button" onclick="showAbout()">Tentang Kami</button>
         <button class="menu-button3" onclick="logout()">Keluar Akun</button>
       </div>
     </div>
@@ -64,14 +61,23 @@
  <div class="cardPesan">
     {{-- <form id="pesanForm" action="{{ route('Customer.kirim_pesan') }}" method="post"> --}}
       @csrf
+      <span class="tulisan-produk">Kepuasan produk :</span>
+      <div class="rating">
+          <span class="star" onclick="rateProduct(1)">☆</span>
+          <span class="star" onclick="rateProduct(2)">☆</span>
+          <span class="star" onclick="rateProduct(3)">☆</span>
+          <span class="star" onclick="rateProduct(4)">☆</span>
+          <span class="star" onclick="rateProduct(5)">☆</span>
+      </div>
+      <span class="tulisan-pesan">Review produk :</span>
       <div class="textarea-container">
         <textarea id="pesanTextarea" name="pesan" placeholder="(Opsional) Tinggalkan pesan ke penjual"></textarea>
         <div id="wordCount" class="word-count">0/100 kata</div>
       </div>
       <button type="submit" class="pesan-button">Beli lagi</button>
     </form>
-    <span class="tulisan-produk">Kepuasan produk :</span>
-    <span class="tulisan-pesan">Review produk :</span>
+
+    {{-- <span class="tulisan-pesan">Review produk :</span> --}}
 </div>
 </div>
 <button class="kembali-button">Kembali</button>
@@ -115,5 +121,13 @@
     // Fungsi untuk logout
     function logout() {
         window.location.href = '/Logout';
+    }
+
+    function rateProduct(rating) {
+        // Di sini, Anda dapat menambahkan logika untuk menyimpan nilai rating ke database atau melakukan tindakan lain sesuai kebutuhan
+        console.log('Rating:', rating);
+        // Misalnya, jika Anda ingin mengirim rating ke backend, Anda dapat menggunakan AJAX.
+        // Contoh: $.post('/api/rating', { rating: rating });
+        // Anda juga bisa mengirimkan rating ke form tersembunyi dan mengirimkannya saat form disubmit.
     }
     </script>  

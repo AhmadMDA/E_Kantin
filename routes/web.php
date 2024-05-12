@@ -47,7 +47,7 @@ Route::post('/register', [RegisterController::class, 'register'])->name('registe
 Route::get('/homepage', [CustomerHomeController::class, 'home'])->name('Customer.home');
 // Route::get('/homepage', [HomeCustomerController::class, 'home']);
 
-Route::get('/description', [DescriptionProductController::class, 'showDescription'])->name('Customer.descriptionproduct');
+Route::get('/description', [DescriptionProductController::class, 'index'])->name('Customer.productdeskripsi');
 
 Route::get('/keranjang', [KeranjangController::class, 'index'])->name('Customer.keranjang');
 // Route::post('/keranjang/tambah', [KeranjangController::class, 'tambah'])->name('Customer.keranjang.tambah');

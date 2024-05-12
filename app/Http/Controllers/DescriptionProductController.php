@@ -9,9 +9,9 @@ use Illuminate\Routing\Controller;
 
 class DescriptionProductController extends Controller
 {
-    public function showDescription()
+    public function index()
     {
-        return view('Customer.descriptionproduct'); // Pastikan view yang dipanggil adalah 'descriptionproduct'
+        return view('Customer.productdeskripsi'); 
     }
 }
 

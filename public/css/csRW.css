@@ -181,7 +181,7 @@
     font-family: "Poppins", sans-serif;
     font-weight: bold;
     color: #DE5D01;
-    font-size: 34px;
+    font-size: 24px;
   }
   
   .jumlah {
@@ -261,7 +261,26 @@
     font-size: 14px;
     color: #888;
   }
-  
+  .rating {
+    margin-top: -60px;
+    margin-bottom: 20px;
+    font-size: 29px; /* Ukuran font bintang */
+  }
+
+  .star {
+      cursor: pointer; /* Menjadikan kursor berubah menjadi tangan saat mengarah ke bintang */
+  }
+
+  /* Memilih bintang yang diklik dan semua bintang sebelumnya untuk diberi warna kuning */
+  .star.clicked, .star.clicked ~ .star {
+      color: #ffd700; /* Warna kuning */
+  }
+
+  /* Memilih bintang yang belum diklik */
+  .star:not(.clicked) {
+      color: #ccc; /* Warna abu-abu */
+  }
+
   .pesan-button {
     position: absolute;
     bottom: -40px;
@@ -275,6 +294,7 @@
     cursor: pointer;
     
   }
+  
   
   button:hover {
     background-color: #DE5D01;

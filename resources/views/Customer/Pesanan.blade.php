@@ -50,8 +50,9 @@
       <div class="nama-produk">Nama Produk</div>
       <div class="jumlah">
         <div class="jumlah">
-            <span></span>
-          </div>
+          <button onclick="kurangiData()">-</button>
+          <span>0</span>
+          <button onclick="tambahData()">+</button>
       </div>
     </div>
     <div class="harga-dan-hapus">
@@ -109,4 +110,23 @@
         kembaliButton.addEventListener('click', function() {
         window.location.href = '/homepage'; 
     });
+
+    var data = 0; // Inisialisasi data
+
+function tambahData() {
+    data++;
+    updateData();
+}
+
+function kurangiData() {
+    if (data > 0) {
+        data--;
+        updateData();
+    }
+}
+
+function updateData() {
+    var spanElement = document.querySelector('.jumlah span');
+    spanElement.textContent = data;
+}
 </script>

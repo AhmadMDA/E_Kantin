@@ -31,14 +31,14 @@
                 <div class="card-body login-form">
                     <p class="subtext3">Anda akan masuk sebagai:</p>
                     <div class="button-container">
-                        <a href="{{ route('login.Customer') }}" class="btn btn-warning">Customer</a>
-                        <a href="{{ route('login.Admin') }}" class="btn btn-warning">Admin</a>
+                        <button class="btn btn-warning" style="background-color: #DE5D01; color: white;" onclick="redirectTo('{{ route('login.Customer') }}')">Customer</button>
+                        <button class="btn btn-warning" style="background-color: #DE5D01; color: white;" onclick="redirectTo('{{ route('login.Admin') }}')">Admin</button>
                     </div>
                     <form method="POST" action="{{ route('login.post') }}">
                         {{ csrf_field() }}
                         <input type="text" name="nama" placeholder="Nama">
                         <input type="password" name="password" placeholder="Password">
-                        <p>Anda sudah punya akun? Silahkan <a href="{{ route('register') }}">masuk disini</a>.</p>
+                        <p>Anda tidak punya akun? Silahkan <span class="link" onclick="redirectToRegister()">masuk disini</span>.</p>
                         <button type="submit" onclick="goToRoute('homepage')">Login</button>
                     </form>
                     
@@ -59,4 +59,11 @@ function goToRoute(routeName) {
             break;
     }
 }
+
+    function redirectToRegister() {
+        window.location.href = "{{ route('register') }}";
+    }
+    function redirectTo(url) {
+        window.location.href = url;
+    }
 </script>

@@ -57,7 +57,13 @@
 .bi-journal-text{
     margin-top: 18px;
 }
-
+.iconF {
+  width: 44px;
+  height: 58px;
+  display: flex;
+  margin-right: 90px;
+  margin-top: 10px;
+}
 /* Sidebar */
 .sidebar {
     margin-top: 89px;
@@ -263,7 +269,21 @@
     cursor: pointer;
     width: 180px;
   }
-
+  .kembali-button {
+    position: absolute;
+    bottom: 80px;
+    left: 10px;
+    background-color: #DE5D01;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .kembali-button:hover {
+    background-color: #DE5D01;
+  }
   /* footer */
 .footer {
     background-color: #F6BC13;

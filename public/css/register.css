@@ -110,6 +110,11 @@ button[type="submit"] {
     margin: center;
 }
 
+.link{
+    color: #DE5D01;
+    text-decoration: underline;
+    font-weight: bold;
+}
 
 
 /* Media queries for responsiveness */

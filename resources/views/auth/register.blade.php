@@ -33,7 +33,7 @@
                             <input type="text" name="Nomer_Induk_Mahasiswa" placeholder="NIK">
                             <input type="password" name="password" placeholder="Password">
                             <input type="password" name="password_confirmation" placeholder="Konfirmasi Password">
-                            <p>Anda sudah punya akun? Silahkan <a href="{{ route('login.Customer') }}">masuk disini</a>.</p>
+                            <p>Anda sudah punya akun? Silahkan <span class="link" onclick="redirectToLogin()">masuk disini</span>.</p>
                             <button type="submit">Daftar</button>
                         </form>
                     </div>
@@ -45,3 +45,9 @@
     </div>
 </div>
 @endsection
+
+<script>
+        function redirectToLogin() {
+        window.location.href = "{{ route('login.Customer') }}";
+    }
+</script>

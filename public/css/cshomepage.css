@@ -57,6 +57,13 @@
 .bi-journal-text{
     margin-top: 18px;
 }
+.iconF {
+  width: 44px;
+  height: 58px;
+  display: flex;
+  margin-right: 90px;
+  margin-top: 10px;
+}
 
 /* Sidebar */
 .sidebar {
