@@ -12,12 +12,12 @@ class LoginCustomerController extends Controller
     {
         return view('auth.loginCustomer');
     }
-
-    public function postlogin(Request $request)
+    protected function credentials(Request $request)
     {
-       if(Auth::attempt($request->only('nama','password'))){
-        return redirect('/homepage');
-    }
-    return redirect('/');
+        return [
+            'email' => $request->email,
+            'password' => $request->password,
+            'role' => 'customer', // check for customer role
+        ];
     }
 }
