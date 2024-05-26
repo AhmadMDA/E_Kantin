@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -12,12 +13,25 @@ class LoginCustomerController extends Controller
     {
         return view('auth.loginCustomer');
     }
-    protected function credentials(Request $request)
+    function Login(Request $request)
     {
-        return [
-            'email' => $request->email,
+        $request->validate([
+            'username' => 'required',
+            'password' => 'required',
+        ],[
+            'username.required' => 'Username harus diisi',
+            'password.required' => 'Password harus diisi',
+        ]);
+        $infologin =[
+            'username' => $request->username,
             'password' => $request->password,
-            'role' => 'customer', // check for customer role
         ];
+
+        if (Auth::attempt($infologin)){
+            return redirect()->route('Customer.home');
+        }else{
+            return 'gagal';
+        }
     }
+   
 }

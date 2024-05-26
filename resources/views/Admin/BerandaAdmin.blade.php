@@ -40,35 +40,50 @@
     <div class="content">
         <div class="description">HI. AHMAD MAULANA DANI AKBAR!!</div>
           <span class="selamat">Selamat Datang di E-Kantin Jurusan Teknologi Informasi</span>
-        <div class="tablecs">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Gambar</th>
-                        <th>Nama Produk</th>
-                        <th>Kategori</th>
-                        <th>Harga</th>
-                        <th>Stock Awal</th>
-                        <th>Rating dan Review</th>
-                        <th>Status</th>
-                        <th>Aksi</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><img src="{{ asset('/img/Nasi Goreng.jpg') }}" alt="Nasgor" class="image1"></td>
-                        <td><div class="tb">Nagi Goreng Enak Cuyy</div></td>
-                        <td><div class="tb">Gorengan</div></td>
-                        <td><div class="tb">Rp2.500</div></td>
-                        <td><div class="tb">50 pcs</div></td>
-                        <td><div class="tb">Nagi Goreng Enak Cuyy</div></td>
-                        <td><button class="btn-aksi">Ready</button></td>
-                        <td></td>
-                    </tr>
-                </tbody>
-            </table>
-            <button class="btn-tambah">tambah</button>
-        </div>
+          <table class="product-table">
+            <thead>
+                <tr>
+                    <th>Gambar</th>
+                    <th>Nama Produk</th>
+                    <th>Kategori</th>
+                    <th>Harga</th>
+                    <th>Stok Awal</th>
+                    <th>Rating dan Review</th>
+                    <th>Status</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><img src="img/tahu isi.jpg" alt="Tahu Isi"></td>
+                    <td>Tahu Isi</td>
+                    <td>Gorengan</td>
+                    <td>Rp2.500</td>
+                    <td>50 pcs</td>
+                    <td><a href="{{ route('Admin.RatingdanReview') }}">4.9/5<br>Lihat review</a></td>
+                    <td><button class="status-btn">Ready</button></td>
+                    <td>
+                        <button class="edit-btn">Edit</button>
+                        <button class="delete-btn">Hapus</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td><img src="img/martabak.jpg" alt="Martabak"></td>
+                    <td>Martabak</td>
+                    <td>Gorengan</td>
+                    <td>Rp2.500</td>
+                    <td>50 pcs</td>
+                    <td><a href="{{ route('Admin.RatingdanReview') }}">4.6/5<br>Lihat review</a></td>
+                    <td><button class="status-btn">Ready</button></td>
+                    <td>
+                        <button class="edit-btn">Edit</button>
+                        <button class="delete-btn">Hapus</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <button class="add-btn" onclick="window.location.href='{{ route('Admin.TambahProduct') }}'">Tambah</button>
+    </div>
     
 </div>
 <button class="kembali-button">Kembali</button>
@@ -92,7 +107,7 @@
                 window.location.href = '/BerandaAdmin';
                 break;
             case 'LaporanPenjualan':
-                window.location.href = '/LaporanPenjualan';
+                window.location.href = '/LaporanPenjualan/table';
                 break;
             case 'InputLaporan':
               window.location.href = '/InputLaporan';

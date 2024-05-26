@@ -10,21 +10,21 @@
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
 @section('content')
-  <div class="header">
-    <div class="input-group mb-3">
-      <div class="icon">E-KANTIN</div>
-        <input type="text" class="form-control input-text" placeholder="Cari menu yang anda cari di sini!" aria-label="Recipient's username" aria-describedby="basic-addon2">
-        <div class="iconF">
-          <a href="{{ route('Customer.RiwayatTransaksi') }}">
-              <img src="{{ asset('/img/lists.png') }}" alt="list">
-          </a>
-          <a href="{{ route('Customer.keranjang') }}">
-              <img src="{{ asset('/img/check-out.png') }}" alt="cart">
-          </a>
-      </div>
-          </div>
-      </div>        
+<div class="header">
+  <div class="input-group mb-3">
+    <div class="icon">E-KANTIN</div>
+    <input id="searchInput" type="text" class="form-control input-text" placeholder="Cari menu yang anda cari di sini!" aria-label="Recipient's username" aria-describedby="basic-addon2">
+    <div class="iconF">
+      <a href="{{ route('Customer.RiwayatTransaksi') }}">
+        <img src="{{ asset('/img/lists.png') }}" alt="list" style="width: 55px; height: 55px;">
+      </a>
+      <a href="{{ route('Customer.keranjang') }}">
+        <img src="{{ asset('/img/check-out.png') }}" alt="cart" style="width: 55px; height: 55px;">
+      </a>
     </div>
+    </div>
+  </div>
+</div>
     
     <!-- Sidebar -->
     <div class="sidebar" id="sidebar">
@@ -45,29 +45,29 @@
 <div class="content">
   <div class="description">Keranjang Anda</div>
   <span class="selamat">Ini isi keranjang anda, yuk segera di pesan!</span>
-  <div class="cek-list">
-    <button class="cek-button" onclick="ubahWarna()"></button>
-  </div>
   
-  <div class="card">
+  
+  <div class="card"  data-card-id="1">
+    <div class="cek-list">
+      <button class="cek-button" onclick="ubahWarna()"></button>
+    </div>
     <img src="{{ asset('/img/Martabak.jpg') }}" alt="Martabak">
     <div class="detail-produk">
-      <div class="nama-produk">Nama Produk</div>
+      <div class="nama-produk">Martabak</div>
       <div class="jumlah">
         <div class="jumlah">
-            <button><i class="fas fa-minus">-</i></button>
-            <span></span>
-            <button><i class="fas fa-plus">+</i></button>
-          </div>
+          <button onclick="kurangiData()">-</button>
+          <span id="quantity">0</span>
+          <button onclick="tambahData()">+</button>
       </div>
     </div>
     <div class="harga-dan-hapus">
-      <div class="harga">Rp 100.000</div>
+      <div id="harga" class="harga">Rp 100.000</div>
       <button class="hapus">hapus</button>
     </div>
   </div>
-    <button class="pesan">Pesan</button>
 </div>
+<button class="pesan">Pesan</button>
 <button class="kembali-button">Kembali</button>
   {{-- Footer --}}
     <footer class="footer">
@@ -125,4 +125,56 @@ function updateData() {
 var spanElement = document.querySelector('.jumlah span');
 spanElement.textContent = data;
 }
+
+
+function tambahData() {
+        var quantityElement = document.getElementById("quantity");
+        var hargaElement = document.getElementById("harga");
+
+        var quantity = parseInt(quantityElement.innerText);
+        var harga = parseInt(hargaElement.innerText.replace('Rp ', '').replace('.', ''));
+
+        quantity++;
+        quantityElement.innerText = quantity;
+        hargaElement.innerText = 'Rp ' + (harga + 100000).toLocaleString();
+    }
+
+    function kurangiData() {
+        var quantityElement = document.getElementById("quantity");
+        var hargaElement = document.getElementById("harga");
+
+        var quantity = parseInt(quantityElement.innerText);
+        var harga = parseInt(hargaElement.innerText.replace('Rp ', '').replace('.', ''));
+
+        if (quantity > 0) {
+            quantity--;
+            quantityElement.innerText = quantity;
+            hargaElement.innerText = 'Rp ' + (harga - 100000).toLocaleString();
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.hapus').forEach(function(button) {
+      button.addEventListener('click', function () {
+        var card = button.closest('.card');
+        if (card) {
+          card.remove();
+        }
+      });
+    });
+  });
+
+  function kurangiData() {
+    var quantityElement = document.getElementById('quantity');
+    var currentQuantity = parseInt(quantityElement.textContent);
+    if (currentQuantity > 0) {
+      quantityElement.textContent = currentQuantity - 1;
+    }
+  }
+
+  function tambahData() {
+    var quantityElement = document.getElementById('quantity');
+    var currentQuantity = parseInt(quantityElement.textContent);
+    quantityElement.textContent = currentQuantity + 1;
+  }
 </script>

@@ -9,21 +9,21 @@
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
 @section('content')
-  <div class="header">
-    <div class="input-group mb-3">
-      <div class="icon">E-KANTIN</div>
-        <input type="text" class="form-control input-text" placeholder="Cari menu yang anda cari di sini!" aria-label="Recipient's username" aria-describedby="basic-addon2">
-        <div class="iconF">
-          <a href="{{ route('Customer.RiwayatTransaksi') }}">
-              <img src="{{ asset('/img/lists.png') }}" alt="list">
-          </a>
-          <a href="{{ route('Customer.keranjang') }}">
-              <img src="{{ asset('/img/check-out.png') }}" alt="cart">
-          </a>
-      </div>
-        </div>
-      </div>        
+<div class="header">
+  <div class="input-group mb-3">
+    <div class="icon">E-KANTIN</div>
+    <input id="searchInput" type="text" class="form-control input-text" placeholder="Cari menu yang anda cari di sini!" aria-label="Recipient's username" aria-describedby="basic-addon2">
+    <div class="iconF">
+      <a href="{{ route('Customer.RiwayatTransaksi') }}">
+        <img src="{{ asset('/img/lists.png') }}" alt="list" style="width: 55px; height: 55px;">
+      </a>
+      <a href="{{ route('Customer.keranjang') }}">
+        <img src="{{ asset('/img/check-out.png') }}" alt="cart" style="width: 55px; height: 55px;">
+      </a>
     </div>
+    </div>
+  </div>
+</div>
     
     <!-- Sidebar -->
     <div class="sidebar" id="sidebar">
@@ -48,120 +48,104 @@
         <div class="container">
           <div class="card-box">
             <div class="rekMenu">REKOMENDASI MENU</div>
-            <div class="menu-container">
-              <!-- Card 1 -->
-              <div class="menu-card">
-                <img onclick="goToRoute('description')" src="{{ asset('/img/Martabak.jpg') }}" alt="Martabak">
-                <div class="menu-info">
-                  <h3>Menu 1 <span class="menu-price">Rp 20.000</span></h3>
-                  <p>Deskripsi menu 1</p>
-                  <div class="menu-rating">
-                    <div class="rating-stars">
-                      <!-- Isi dengan ikon bintang atau semacamnya -->
-                    </div>
-                    <button onclick="goToRoute('pesanan')">Pesan</button>
+              <div class="menu-grid">
+                  <div class="menu-item">
+                    <img onclick="goToRoute('description')" src="{{ asset('/img/Martabak.jpg') }}" alt="Martabak">
+                    <div class="menu-details">
+                      <h2>Martabak</h2>
+                      <p class="price">Rp10,000</p>
                   </div>
-                </div>
-              </div>
-              <!-- Card 2 -->
-              <div class="menu-card">
-                <img src="{{ asset('/img/Martabak.jpg') }}" alt="Martabak">
-                <div class="menu-info">
-                  <h3>Menu 2 <span class="menu-price">Rp 25.000</span></h3>
-                  <p>Deskripsi menu 2</p>
-                  <div class="menu-rating">
-                    <div class="rating-stars">
-                      <!-- Isi dengan ikon bintang atau semacamnya -->
-                    </div>
-                    <button>Pesan</button>
+                      <p>Tahu isi ini berisi isian daging yang sangat gurih dan lezat. <a href="#" class="expand-link" onclick="expandDescription(this)">Selengkapnya</a></p>
+                  <div class="rating-and-pesan">
+                    <div class="rating">★★★★★</div>
+                    <button class="pesan-button" onclick="redirectToKeranjang()">Pesan</button>
                   </div>
-                </div>
-              </div>
-              <!-- Card 3 -->
-              <div class="menu-card">
-                <img src="{{ asset('/img/Martabak.jpg') }}" alt="Martabak">
-                <div class="menu-info">
-                  <h3>Menu 3 <span class="menu-price">Rp 30.000</span></h3>
-                  <p>Deskripsi menu 3</p>
-                  <div class="menu-rating">
-                    <div class="rating-stars">
-                      <!-- Isi dengan ikon bintang atau semacamnya -->
-                    </div>
-                    <button>Pesan</button>
                   </div>
-                </div>
-              </div>
-              <!-- Card 4 -->
-              <div class="menu-card">
-                <img src="{{ asset('/img/Martabak.jpg') }}" alt="Martabak">
-                <div class="menu-info">
-                  <h3>Menu 4 <span class="menu-price">Rp 35.000</span></h3>
-                  <p>Deskripsi menu 4</p>
-                  <div class="menu-rating">
-                    <div class="rating-stars">
-                      <!-- Isi dengan ikon bintang atau semacamnya -->
-                    </div>
-                    <button>Pesan</button>
+                  <div class="menu-item">
+                    <img onclick="goToRoute('description')" src="{{ asset('/img/Martabak.jpg') }}" alt="Martabak">
+                    <div class="menu-details">
+                      <h2>Nasi Goreng</h2>
+                      <p class="price">Rp10,000</p>
                   </div>
-                </div>
-              </div>
-              <!-- Card 5 -->
-              <div class="menu-card">
-                <img src="{{ asset('/img/Martabak.jpg') }}" alt="Martabak">
-                <div class="menu-info">
-                  <h3>Menu 5 <span class="menu-price">Rp 40.000</span></h3>
-                  <p>Deskripsi menu 5</p>
-                  <div class="menu-rating">
-                    <div class="rating-stars">
-                      <!-- Isi dengan ikon bintang atau semacamnya -->
-                    </div>
-                    <button>Pesan</button>
+                      <p>Sosis Solo adalah makanan khas Solo yang berbahan dasar daging sapi cincang.</p>
+                      <div class="rating-and-pesan">
+                        <div class="rating">★★★★★</div>
+                        <button class="pesan-button">Pesan</button>
+                      </div>
                   </div>
-                </div>
-              </div>
-              <!-- Card 6 -->
-              <div class="menu-card">
-                <img src="{{ asset('/img/Martabak.jpg') }}" alt="Martabak">
-                <div class="menu-info">
-                  <h3>Menu 6 <span class="menu-price">Rp 45.000</span></h3>
-                  <p>Deskripsi menu 6</p>
-                  <div class="menu-rating">
-                    <div class="rating-stars">
-                      <!-- Isi dengan ikon bintang atau semacamnya -->
-                    </div>
-                    <button>Pesan</button>
+                  <div class="menu-item">
+                    <img onclick="goToRoute('description')" src="{{ asset('/img/Martabak.jpg') }}" alt="Martabak">
+                    <div class="menu-details">
+                      <h2>Nasi Goreng</h2>
+                      <p class="price">Rp10,000</p>
+                   </div>
+                      <p>Nasi goreng adalah hidangan berupa nasi yang digoreng dengan bumbu khas.</p>
+                  <div class="rating-and-pesan">
+                    <div class="rating">★★★★★</div>
+                    <button class="pesan-button">Pesan</button>
                   </div>
-                </div>
-              </div>
-              <!-- Card 7 -->
-              <div class="menu-card">
-                <img src="{{ asset('/img/Martabak.jpg') }}" alt="Martabak">
-                <div class="menu-info">
-                  <h3>Menu 7 <span class="menu-price">Rp 50.000</span></h3>
-                  <p>Deskripsi menu 7</p>
-                  <div class="menu-rating">
-                    <div class="rating-stars">
-                      <!-- Isi dengan ikon bintang atau semacamnya -->
-                    </div>
-                    <button>Pesan</button>
                   </div>
-                </div>
-              </div>
-              <!-- Card 8 -->
-              <div class="menu-card">
-                <img src="{{ asset('/img/Martabak.jpg') }}" alt="Martabak">
-                <div class="menu-info">
-                  <h3>Menu 8 <span class="menu-price">Rp 55.000</span></h3>
-                  <p>Deskripsi menu 8</p>
-                  <div class="menu-rating">
-                    <div class="rating-stars">
-                      <!-- Isi dengan ikon bintang atau semacamnya -->
-                    </div>
-                    <button>Pesan</button>
+                  <div class="menu-item">
+                    <img onclick="goToRoute('description')" src="{{ asset('/img/Martabak.jpg') }}" alt="Martabak">
+                    <div class="menu-details">
+                      <h2>Ayam Goreng</h2>
+                      <p class="price">Rp10,000</p>
                   </div>
-                </div>
+                      <p>Martabak ini sangat enak dengan isian coklat dan keju yang meleleh.</p>
+                  <div class="rating-and-pesan">
+                    <div class="rating">★★★★★</div>
+                    <button class="pesan-button">Pesan</button>
+                  </div>
+                  </div>
+                  <div class="menu-item">
+                    <img onclick="goToRoute('description')" src="{{ asset('/img/Martabak.jpg') }}" alt="Martabak">
+                    <div class="menu-details">
+                      <h2>Nasi Goreng</h2>
+                      <p class="price">Rp10,000</p>
+                  </div>
+                      <p>Tahu isi ini berisi isian daging yang sangat gurih dan lezat. <a href="#" class="expand-link" onclick="expandDescription(this)">Selengkapnya</a></p>
+                  <div class="rating-and-pesan">
+                    <div class="rating">★★★★★</div>
+                    <button class="pesan-button">Pesan</button>
+                  </div>
+                  </div>
+                  <div class="menu-item">
+                    <img onclick="goToRoute('description')" src="{{ asset('/img/Martabak.jpg') }}" alt="Martabak">
+                    <div class="menu-details">
+                      <h2>Nasi Goreng</h2>
+                      <p class="price">Rp10,000</p>
+                  </div>
+                      <p>Martabak ini sangat enak dengan isian coklat dan keju yang meleleh.</p>
+                  <div class="rating-and-pesan">
+                    <div class="rating">★★★★★</div>
+                    <button class="pesan-button">Pesan</button>
+                  </div>
+                  </div>
+                  <div class="menu-item">
+                    <img onclick="goToRoute('description')" src="{{ asset('/img/Martabak.jpg') }}" alt="Martabak">
+                    <div class="menu-details">
+                      <h2>Nasi Goreng</h2>
+                      <p class="price">Rp10,000</p>
+                  </div>
+                      <p>Tahu isi ini berisi isian daging yang sangat gurih dan lezat. <a href="#" class="expand-link" onclick="expandDescription(this)">Selengkapnya</a></p>
+                  <div class="rating-and-pesan">
+                    <div class="rating">★★★★★</div>
+                    <button class="pesan-button">Pesan</button>
+                  </div>
+                  </div>
+                  <div class="menu-item">
+                    <img onclick="goToRoute('description')" src="{{ asset('/img/Martabak.jpg') }}" alt="Martabak">
+                    <div class="menu-details">
+                      <h2>Nasi Goreng</h2>
+                      <p class="price">Rp10,000</p>
+                  </div>
+                      <p>Tahu isi ini berisi isian daging yang sangat gurih dan lezat. <a href="#" class="expand-link" onclick="expandDescription(this)">Selengkapnya</a></p>
+                  <div class="rating-and-pesan">
+                    <div class="rating">★★★★★</div>
+                    <button class="pesan-button">Pesan</button>
+                  </div>
+                  </div>
               </div>
-            </div>
             <div class="navigation">
               <button onclick="prevMenu()">&lt;</button>
               <button onclick="showMenu(1)">1</button>
@@ -190,9 +174,6 @@
             case 'homepage':
                 window.location.href = '/homepage';
                 break;
-            case 'pesanan':
-              window.location.href = '/pesanan';
-            break;
             case 'description':
               window.location.href = '/description';
             break;
@@ -200,5 +181,37 @@
     }
       function logout() {
         window.location.href = '/Logout';
+    }
+
+//search bar
+// Ambil input search
+var searchInput = document.getElementById("searchInput");
+
+// Tambahkan event listener untuk event input
+searchInput.addEventListener("input", function() {
+  // Ambil nilai dari input search
+  var searchValue = this.value.toLowerCase();
+  
+  // Ambil semua item menu
+  var menuItems = document.querySelectorAll(".menu-item");
+
+  // Iterasi melalui setiap item menu
+  menuItems.forEach(function(item) {
+    // Ambil teks dari setiap item menu
+    var menuItemText = item.textContent.toLowerCase();
+
+    // Cek apakah teks item menu mengandung nilai pencarian
+    if (menuItemText.includes(searchValue)) {
+      // Jika iya, tampilkan item menu
+      item.style.display = "block";
+    } else {
+      // Jika tidak, sembunyikan item menu
+      item.style.display = "none";
+    }
+  });
+});
+
+    function redirectToKeranjang() {
+        window.location.href = "{{ route('Customer.keranjang') }}";
     }
 </script>

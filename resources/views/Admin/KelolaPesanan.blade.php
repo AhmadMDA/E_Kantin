@@ -92,7 +92,7 @@
                 window.location.href = '/BerandaAdmin';
                 break;
             case 'LaporanPenjualan':
-                window.location.href = '/LaporanPenjualan';
+                window.location.href = '/LaporanPenjualan/table';
                 break;
             case 'InputLaporan':
                 window.location.href = '/InputLaporan';

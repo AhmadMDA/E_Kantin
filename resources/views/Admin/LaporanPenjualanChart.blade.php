@@ -31,32 +31,10 @@
   <div class="chart-container">
     <canvas id="bar-chart"></canvas>
 </div>
-<button id="toggle-report" class="print-button">Laporan Table</button>
-<div id="table-container" style="display:none;">
-  <table id="report-table" class="report-table">
-    <thead>
-        <tr>
-            <th>Nama</th>
-            <th>Jumlah</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Data 1</td>
-            <td>10</td>
-        </tr>
-        <tr>
-            <td>Data 2</td>
-            <td>20</td>
-        </tr>
-        <tr>
-            <td>Data 3</td>
-            <td>30</td>
-        </tr>
-    </tbody>
-</table>
-{{-- <button id="toggle-table" class="print-button" onclick="toggleReportView()">Tampilkan Table</button> --}}
-</div>
+<canvas id="penjualanChart" width="400" height="200"></canvas>
+    <div class="btn-container">
+        <a href="{{ route('Admin.LaporanPenjualan.table') }}" class="btn">Lihat Tabel</a>
+    </div>
 <button id="toggle-report" class="printLP-button" onclick="window.print()">Cetak Laporan</button>
 
 
@@ -165,4 +143,32 @@ function printTable() {
     // Menutup jendela baru setelah pencetakan selesai
     newWin.close();
 }
+
+//chart
+const data = @json($data);
+
+const labels = data.map(item => item.nama_produk);
+const values = data.map(item => parseInt(item.terjual.replace('pcs', '')));
+
+const ctx = document.getElementById('penjualanChart').getContext('2d');
+const myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: labels,
+        datasets: [{
+            label: 'Jumlah Terjual',
+            data: values,
+            backgroundColor: 'rgba(255, 159, 64, 0.2)',
+            borderColor: 'rgba(255, 159, 64, 1)',
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
   </script>

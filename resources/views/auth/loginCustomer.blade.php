@@ -34,12 +34,12 @@
                         <button class="btn btn-warning" style="background-color: #DE5D01; color: white;" onclick="redirectTo('{{ route('login.Customer') }}')">Customer</button>
                         <button class="btn btn-warning" style="background-color: #DE5D01; color: white;" onclick="redirectTo('{{ route('login.Admin') }}')">Admin</button>
                     </div>
-                    <form method="POST" action="{{ route('login.post') }}">
+                    <form action="{{ route('Customer.home') }}" method="get">
                         {{ csrf_field() }}
-                        <input type="text" name="nama" placeholder="Nama">
+                        <input type="text" name="username" placeholder="Username">
                         <input type="password" name="password" placeholder="Password">
                         <p>Anda tidak punya akun? Silahkan <span class="link" onclick="redirectToRegister()">masuk disini</span>.</p>
-                        <button type="submit" onclick="goToRoute('homepage')">Login</button>
+                        <button type="submit" onclick="goToRoute('Customer.home')">Login</button>
                     </form>
                     
                 </div>

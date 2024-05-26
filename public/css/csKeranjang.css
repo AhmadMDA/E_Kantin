@@ -197,7 +197,7 @@
   
   .hapus {
     position: absolute;
-    bottom: 40;
+    top: 80;
     right: 50;
     width: 100px;
 
@@ -205,7 +205,7 @@
   
   .harga {
     position: absolute;
-    bottom: 44px; /* Atur elemen harga sejajar dengan elemen hapus */
+    top: 80; /* Atur elemen harga sejajar dengan elemen hapus */
     right: 170px; /* Atur elemen harga sejajar dengan elemen hapus */
     font-family: "Poppins", sans-serif;
     font-weight: bold;
@@ -260,7 +260,7 @@
   .pesan {
     position: absolute;
     bottom: -80px; /* Sesuaikan jarak dari bawah */
-    right: 130px; /* Sesuaikan jarak dari kanan */
+    right: 140px; /* Sesuaikan jarak dari kanan */
     background-color: #DE5D01;
     color: white;
     border: none;
@@ -271,8 +271,8 @@
   }
   .kembali-button {
     position: absolute;
-    bottom: 80px;
-    left: 10px;
+    top: 470px;
+    left: -30px;
     background-color: #DE5D01;
     color: white;
     border: none;

@@ -128,72 +128,63 @@
     margin-left: -10px;
     margin-top: 100px;
   }
-  .tablecs{
-    margin-top: 50px;
-  }
-  .table {
+  h1 {
+    color: #ff9900;
+}
 
+p {
+    color: #333;
+}
+
+.product-table {
+    width: 96%;
     border-collapse: collapse;
-    }
+    margin-top: 20px;
+}
 
-    table th,
-    table td {
-        border: 1px solid #DE5D01;
-        padding: 8px;
-        text-align: center;
-        width: 140px;
-        color: #DE5D01;
-    }
+.product-table th, .product-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
 
-    .table th {
-        background-color: #DE5D01;
-        color: #DE5D01;
-    }
-
-    .table tr:nth-child(even) {
-        background-color: #DE5D01;
-    }
-
-    .table tr:hover {
-        background-color: #DE5D01;
-    }
-
-    .table td img {
-        max-width: 100px;
-        height: auto;
-    }
-    .image1{
-        height: 90px;
-        width: 90px;
-    }
-
-  .btn-aksi{
-    background-color: #F6BC13;
+.product-table th {
+    background-color: #ff9900;
     color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 80px;
-    height: 30px;
-    line-height: 0px;
-    text-align: justify;
-  }
+}
 
-  .btn-tambah{
-    background-color: #F6BC13;
-    color: white;
+.product-table img {
+    width: 100px;
+    height: 80px;
+}
+
+.status-btn, .edit-btn, .delete-btn, .add-btn {
+    padding: 5px 10px;
     border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
     cursor: pointer;
-    margin-left: 1000px;
-    text-align:  center;
-    width: 90px;
-    height: 30px;
-    margin-top: 60px;
-    line-height: 0px;
-  }
+}
+
+.status-btn {
+    background-color: green;
+    color: white;
+}
+
+.edit-btn {
+    background-color: #ffcc00;
+    color: black;
+}
+
+.delete-btn {
+    background-color: red;
+    color: white;
+}
+
+.add-btn {
+    background-color: #ff9900;
+    color: white;
+    margin-top: 20px;
+    display: block;
+}
   .kembali-button {
     position: absolute;
     bottom: 80px;

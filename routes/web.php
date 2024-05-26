@@ -24,7 +24,7 @@ use App\Http\Controllers\RatingdanReviewAdminController;
 use App\Http\Controllers\SuntingProductController;
 use App\Http\Controllers\LaporanPenjualanController;
 use App\Http\Controllers\KelolaPesananController;
-
+use App\Http\Controllers\LaporanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,16 +36,16 @@ use App\Http\Controllers\KelolaPesananController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/Logout', [LoginCustomerController::class, 'showLoginForm'])->name('login.Customer');
-
-Route::get('/loginCustomer', [LoginCustomerController::class, 'showLoginForm'])->name('login.Customer');
+Route::get('/', [LoginCustomerController::class, 'showLoginForm'])->name('login.Customer');
 Route::post('/loginCustomer', [LoginCustomerController::class, 'login'])->name('login.post');
+
+Route::get('/Logout', [LoginCustomerController::class, 'showLoginForm'])->name('login.Customer');
 
 Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
 Route::post('/register', [RegisterController::class, 'register'])->name('register.post');
 
 Route::get('/homepage', [CustomerHomeController::class, 'home'])->name('Customer.home');
-// Route::get('/homepage', [HomeCustomerController::class, 'home']);
+Route::post('/homepage', [CustomerHomeController::class, 'handlePost'])->name('Customer.home.post');
 
 Route::get('/description', [DescriptionProductController::class, 'index'])->name('Customer.productdeskripsi');
 
@@ -80,8 +80,13 @@ Route::get('/RatingdanReviewAdmin', [RatingdanReviewAdminController::class, 'ind
 
 Route::get('/SuntingProduct', [SuntingProductController::class, 'index'])->name('Admin.SuntingProduct');
 
-Route::get('/LaporanPenjualan', [LaporanPenjualanController::class, 'index'])->name('Admin.LaporanPenjualan');
+Route::get('/LaporanPenjualan', [LaporanPenjualanController::class, 'showLaporanPenjualan'])->name('Admin.LaporanPenjualan');
+Route::get('/LaporanPenjualan/chart', [LaporanPenjualanController::class, 'chart'])->name('Admin.LaporanPenjualan.chart');
+Route::post('/LaporanPenjualan/table', [LaporanPenjualanController::class, 'table'])->name('Admin.LaporanPenjualan.table');
+Route::get('/LaporanPenjualan/export', [LaporanPenjualanController::class, 'export'])->name('Admin.LaporanPenjualan.export');
 
 Route::get('/InputLaporan', [InputLaporanController::class, 'index'])->name('Admin.InputLaporan');
+Route::post('/InputLaporan/store', [InputLaporanController::class, 'store'])->name('Admin.InputLaporan.store');
+Route::post('/InputLaporan/batal', [InputLaporanController::class, 'batal'])->name('Admin.InputLaporan.batal');
 
 Route::get('/KelolaPesanan', [KelolaPesananController::class, 'index'])->name('Admin.KelolaPesanan');

@@ -29,12 +29,13 @@
                     <div class="card-body register-form">
                         <form method="POST" action="{{ route('register.post') }}">
                             @csrf
-                            <input type="text" name="name" placeholder="Nama">
-                            <input type="text" name="Nomer_Induk_Mahasiswa" placeholder="NIK">
-                            <input type="password" name="password" placeholder="Password">
-                            <input type="password" name="password_confirmation" placeholder="Konfirmasi Password">
+                            <input type="text" name="namaCustomer" placeholder="Nama" required>
+                            <input type="text" name="Nomer_Induk_Mahasiswa" placeholder="NIK" required>
+                            <input type="text" id="Nomer_Telepon" name="Nomer_Telepon" placeholder="NoHp" maxlength="11" oninput="this.value = this.value.replace(/[^0-9]/g, '');" required>
+                            <input type="password" name="password" placeholder="Password" required>
+                            <input type="password" name="password_confirmation" placeholder="Konfirmasi Password" required>
                             <p>Anda sudah punya akun? Silahkan <span class="link" onclick="redirectToLogin()">masuk disini</span>.</p>
-                            <button type="submit">Daftar</button>
+                            <button type="submit" id="btnDaftar">Daftar</button>
                         </form>
                     </div>
                 </div>
@@ -47,7 +48,15 @@
 @endsection
 
 <script>
-        function redirectToLogin() {
-        window.location.href = "{{ route('login.Customer') }}";
-    }
-</script>
+    document.getElementById('btnDaftar').addEventListener('click', function(e) {
+        e.preventDefault(); // Menghentikan default behavior dari tombol submit
+    
+        // Mengirimkan formulir pendaftaran secara manual
+        document.querySelector('form').submit();
+    });
+    
+    // JavaScript to allow only numeric input
+    document.getElementById('Nomer_Telepon').addEventListener('input', function(e) {
+        this.value = this.value.replace(/[^0-9]/g, '');
+    });
+    </script>

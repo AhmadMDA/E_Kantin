@@ -13,12 +13,12 @@
     <link rel="stylesheet" href="{{ asset('resources/css/customer-login.css') }}" rel="stylesheet">
 @endsection
 <body>
-    <!-- Include your navigation bar or header if needed -->
+
     <div class="container">
-    <!-- Content section -->
-    @yield('content')
+        @yield('content')
     </div>
-    <!-- Include your footer if needed -->
+
+    {{-- @include('partials.footer')<!-- Include your footer if needed --> --}}
 
     <!-- Include any JavaScript files if needed -->
 </body>

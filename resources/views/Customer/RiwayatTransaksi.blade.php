@@ -9,21 +9,21 @@
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
 @section('content')
-  <div class="header">
-    <div class="input-group mb-3">
-      <div class="icon">E-KANTIN</div>
-        <input type="text" class="form-control input-text" placeholder="Cari menu yang anda cari di sini!" aria-label="Recipient's username" aria-describedby="basic-addon2">
-        <div class="iconF">
-          <a href="{{ route('Customer.RiwayatTransaksi') }}">
-              <img src="{{ asset('/img/lists.png') }}" alt="list">
-          </a>
-          <a href="{{ route('Customer.keranjang') }}">
-              <img src="{{ asset('/img/check-out.png') }}" alt="cart">
-          </a>
-      </div>
-          </div>
-      </div>        
+<div class="header">
+  <div class="input-group mb-3">
+    <div class="icon">E-KANTIN</div>
+    <input id="searchInput" type="text" class="form-control input-text" placeholder="Cari menu yang anda cari di sini!" aria-label="Recipient's username" aria-describedby="basic-addon2">
+    <div class="iconF">
+      <a href="{{ route('Customer.RiwayatTransaksi') }}">
+        <img src="{{ asset('/img/lists.png') }}" alt="list" style="width: 55px; height: 55px;">
+      </a>
+      <a href="{{ route('Customer.keranjang') }}">
+        <img src="{{ asset('/img/check-out.png') }}" alt="cart" style="width: 55px; height: 55px;">
+      </a>
     </div>
+    </div>
+  </div>
+</div>
     
     <!-- Sidebar -->
     <div class="sidebar" id="sidebar">

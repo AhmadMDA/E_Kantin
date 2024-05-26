@@ -6,32 +6,43 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use App\Models\Customer;
 use Illuminate\Routing\Controller;
 
 class RegisterController extends Controller
 {
     public function showRegistrationForm()
     {
-        return view('auth.register');
+        return view('auth.login.customer');
     }
 
     public function register(Request $request)
     {
-       
-        $validatedData = $request->validate([
-            'name' => 'required|max:255',
-            'NIK' => 'required|numeric|max:255|unique:users',
-            'password' => 'required|min:8|confirmed',
+        // Validasi data yang diterima dari formulir
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'Nomer_Induk_Mahasiswa' => 'required|string|max:255',
+            'Nomer_Telepon' => 'required|string|max:11',
+            'password' => 'required|string|confirmed|min:8',
         ]);
 
+        // Simpan data pengguna ke tabel 'users'
         $user = User::create([
-            'name' => $validatedData['name'],
-            'NIK' => $validatedData['NIK'],
-            'password' => Hash::make($validatedData['password']),
+            'username' => $request->Nomer_Induk_Mahasiswa,
+            'password' => Hash::make($request->password),
+            'role' => 'customer', // Tambahkan role default untuk pengguna baru
+        ]);
+        
+
+        // Simpan data tambahan ke tabel 'm_customer' jika diperlukan
+        Customer::create([
+            'user_id' => $user->id,
+            'namaCustomer' => $request->name,
+            'nomorTelepon' => $request->Nomer_Telepon,
+            //Tambahkan kolom lain yang diperlukan
         ]);
 
-        Auth::login($user);
-
-        return redirect()->route('home');
+        // Redirect pengguna ke halaman login setelah registrasi berhasil
+        return redirect()->route('login.Customer')->with('success', 'Pendaftaran berhasil. Silakan login.');
     }
 }
