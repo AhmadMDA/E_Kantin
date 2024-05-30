@@ -57,6 +57,16 @@ class LaporanPenjualanController extends Controller
                 'sisa_stok' => '-',
                 'total_pemasukan' => 125000
             ],
+            [
+                'tanggal' => '30/05/2024',
+                'nama_produk' => 'Tahu Isi',
+                'kategori' => 'Makanan',
+                'harga' => 2500,
+                'stok_awal' => '20pcs',
+                'terjual' => '10pcs',
+                'sisa_stok' => '10pcs',
+                'total_pemasukan' => 25000
+            ],
         ];
     }
 

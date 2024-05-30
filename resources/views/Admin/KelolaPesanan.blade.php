@@ -53,8 +53,8 @@
             <td>Achmad</td>
             <td>Tahu Isi</td>
             <td>Gorengan</td>
-            <td>Rp2.500</td>
-            <td>1 pcs</td>
+            <td>Rp5.000</td>
+            <td>2 pcs</td>
             <td><button class="btn-status">Ready</button></td>
             <td>
               <button class="btn-terima">Terima</button>
