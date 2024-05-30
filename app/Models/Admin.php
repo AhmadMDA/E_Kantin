@@ -11,9 +11,8 @@ class AdminKantin extends Model
     protected $table = 'm_admin_kantin';
 
     protected $fillable = [
-        'user_id',
-        'namaAdminK',
-        'nomorTelepon',
+        'username',
+        'password',
     ];
 
     // Relasi dengan model User

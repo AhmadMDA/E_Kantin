@@ -12,7 +12,7 @@ class LaporanPenjualanController extends Controller
     public function showLaporanPenjualan()
     {
         $data = $this->getData();
-        return view('Admin.LaporanPenjualanExcel', compact('data'));
+        return view('Admin.LaporanPenjualan', compact('data'));
     }
     private function getData()
     {
@@ -39,7 +39,7 @@ class LaporanPenjualanController extends Controller
             ],
             [
                 'tanggal' => '01/04/2024',
-                'nama_produk' => 'Nasi Goreng',
+                'nama_produk' => 'Martabak',
                 'kategori' => 'Makanan Berat',
                 'harga' => 10000,
                 'stok_awal' => '15pcs',
@@ -84,6 +84,20 @@ class LaporanPenjualanController extends Controller
         $total_pemasukan = array_sum(array_column($data, 'total_pemasukan'));
 
         return Excel::download(new LaporanPenjualanExport($data, $total_pemasukan), 'Admin.LaporanPenjualan.export');
+    }
+
+    public function tambahPenjualan($idPesanan)
+    {
+        // Di sini Anda dapat menambahkan logika untuk menambahkan data penjualan berdasarkan $idPesanan
+        // Contoh:
+        $pesanan = Pesanan::find($idPesanan);
+        $penjualan = new Penjualan();
+        $penjualan->nama_produk = $pesanan->nama_produk;
+        $penjualan->kategori = $pesanan->kategori;
+        // Tambahkan logika lain sesuai kebutuhan
+        $penjualan->save();
+
+        return response()->json(['message' => 'Data penjualan berhasil ditambahkan'], 200);
     }
 }
 

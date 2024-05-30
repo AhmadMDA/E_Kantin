@@ -12,7 +12,7 @@
     background-color: #F6BC13;
     width: 1248px;
     height: 78px;
-    margin-left: 65px;
+    margin-left: -60px;
     background-image: url('/img/kantin.png');
     background-repeat: no-repeat;
     background-position: left;
@@ -47,7 +47,7 @@
   .content {
     width: 1080px;
     height: 760px;
-    margin-left: 159px;
+    margin-left: 59px;
     border-radius: 8px; 
     border: 2px solid #DE5D01;
     margin-bottom: 90px;
@@ -57,7 +57,7 @@
     font-family: "Poppins", sans-serif;
     font-weight: bold;
     margin-top: 100px;
-    margin-left: 159px; 
+    margin-left: 59px; 
   }
 
    /* Pesan */

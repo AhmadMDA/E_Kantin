@@ -2,47 +2,50 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 use App\Models\User;
-use App\Models\Customer;
-use Illuminate\Routing\Controller;
+use App\Models\Customer; // Import the Customer model
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
 {
     public function showRegistrationForm()
     {
-        return view('auth.login.customer');
+        return view('auth.register'); // Make sure this matches the view file path
     }
 
     public function register(Request $request)
     {
-        // Validasi data yang diterima dari formulir
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'Nomer_Induk_Mahasiswa' => 'required|string|max:255',
-            'Nomer_Telepon' => 'required|string|max:11',
-            'password' => 'required|string|confirmed|min:8',
+        $validator = Validator::make($request->all(), [
+            'namaCustomer' => 'required|string',
+            'Nomer_Induk_Mahasiswa' => 'required|string',
+            'Nomer_Telepon' => 'required|string|max:12',
+            'alamat' => 'required|string',
+            'password' => 'required|string|max:5|confirmed',
         ]);
 
-        // Simpan data pengguna ke tabel 'users'
-        $user = User::create([
-            'username' => $request->Nomer_Induk_Mahasiswa,
-            'password' => Hash::make($request->password),
-            'role' => 'customer', // Tambahkan role default untuk pengguna baru
-        ]);
-        
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
 
-        // Simpan data tambahan ke tabel 'm_customer' jika diperlukan
-        Customer::create([
-            'user_id' => $user->id,
-            'namaCustomer' => $request->name,
-            'nomorTelepon' => $request->Nomer_Telepon,
-            //Tambahkan kolom lain yang diperlukan
-        ]);
+        // $user = new User();
+        // $user->username = $request->namaCustomer;
+        // $user->nik = $request->Nomer_Induk_Mahasiswa;
+        // $user->phone = $request->Nomer_Telepon;
+        // $user->password = Hash::make($request->password);
+        // $user->save();
 
-        // Redirect pengguna ke halaman login setelah registrasi berhasil
-        return redirect()->route('login.Customer')->with('success', 'Pendaftaran berhasil. Silakan login.');
+        // // Save customer details
+        // $customer = new Customer();
+        // $customer->user_id = $user->id;
+        // $customer->namaCustomer = $request->namaCustomer;
+        // $customer->nik = $request->Nomer_Induk_Mahasiswa;
+        // $customer->nomorTelepon = $request->Nomer_Telepon;
+        // $customer->alamat = $request->alamat;
+        // $customer->password = $user->password;
+        // $customer->save();
+
+        return redirect()->route('login.Customer');
     }
 }

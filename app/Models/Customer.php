@@ -9,10 +9,8 @@ class Customer extends Model
 {
     use HasFactory;
 
-    protected $table = 'm_customer'; // sesuaikan dengan nama tabel yang benar
-
     protected $fillable = [
-        'user_id', 'namaCustomer', 'nomorTelepon', 'alamat',
+        'user_id', 'namaCustomer','nik', 'nomorTelepon', 'alamat', 'password',
     ];
 
     public function user()
@@ -20,3 +18,4 @@ class Customer extends Model
         return $this->belongsTo(User::class);
     }
 }
+

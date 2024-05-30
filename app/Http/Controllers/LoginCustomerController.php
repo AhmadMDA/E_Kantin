@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
 
 class LoginCustomerController extends Controller
@@ -13,25 +11,31 @@ class LoginCustomerController extends Controller
     {
         return view('auth.loginCustomer');
     }
-    function Login(Request $request)
+
+    public function login(Request $request)
     {
         $request->validate([
             'username' => 'required',
-            'password' => 'required',
+            'password' => 'required|max:6',
         ],[
             'username.required' => 'Username harus diisi',
             'password.required' => 'Password harus diisi',
         ]);
-        $infologin =[
-            'username' => $request->username,
-            'password' => $request->password,
-        ];
 
-        if (Auth::attempt($infologin)){
+        $credentials = $request->only('username', 'password');
+
+        if (Auth::attempt($credentials)) {
+            session(['role' => 'customer']);
             return redirect()->route('Customer.home');
-        }else{
-            return 'gagal';
+        } else {
+            return back()->withErrors(['message' => 'Invalid credentials.']);
         }
     }
-   
+
+    public function logout()
+    {
+        Auth::logout();
+        session()->forget('role');
+        return redirect()->route('login.Customer');
+    }
 }

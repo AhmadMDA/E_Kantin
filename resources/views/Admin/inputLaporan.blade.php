@@ -60,7 +60,7 @@
             </div>
         </form>
     </div>
-    <button class="kembali-button">Kembali</button>
+    <button class="kembali-button" goro>Kembali</button>
 </div>
 
 <footer class="footer">
@@ -73,7 +73,7 @@
 <script>
     const kembaliButton = document.querySelector('.kembali-button');
     kembaliButton.addEventListener('click', function() {
-        window.location.href = '/LaporanPenjualan/chart'; 
+        window.location.href = '/LaporanPenjualan'; 
     });
 
     const batalButton = document.querySelector('.batal-button');

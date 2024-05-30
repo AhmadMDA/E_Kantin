@@ -176,25 +176,48 @@
   
   .harga {
     position: absolute;
-    bottom: 24px; /* Atur elemen harga sejajar dengan elemen hapus */
+    bottom: 100px; /* Atur elemen harga sejajar dengan elemen hapus */
     right: 10px; /* Atur elemen harga sejajar dengan elemen hapus */
+    font-family: "Poppins", sans-serif;
+    font-weight: bold;
+    color: #293859;
+    font-size: 24px;
+    margin-right: 50px;
+  }
+  .Total{
+    margin-top: 150px;
+  }
+  .Total-harga-ds{
+    position: absolute;
+    bottom: 0px; /* Atur elemen harga sejajar dengan elemen hapus */
+    right: 300px; /* Atur elemen harga sejajar dengan elemen hapus */
     font-family: "Poppins", sans-serif;
     font-weight: bold;
     color: #DE5D01;
     font-size: 24px;
   }
-  
+  .Total-harga{
+    position: absolute;
+    bottom: 0px; /* Atur elemen harga sejajar dengan elemen hapus */
+    right: 10px; /* Atur elemen harga sejajar dengan elemen hapus */
+    font-family: "Poppins", sans-serif;
+    font-weight: bold;
+    color: #DE5D01;
+    font-size: 24px;
+    margin-right: 50px;
+  }
   .jumlah {
     display: flex;
     align-items: center;
-    
+    font-size: larger;
+    font-weight: bold;
   }
   
   .jumlah span {
     height: 35px;
-    width: 35px;
-    border: 2px solid #DE5D01; /* Tambahkan border hanya pada angka */
-    padding: 6px 18px; /* Sesuaikan padding agar tetap sejajar dengan tombol */
+    width: 50px;
+    border: 2px solid #DE5D01; 
+    padding: 0px 9px; /* Sesuaikan padding agar tetap sejajar dengan tombol */
     margin: 0 5px; /* Beri jarak antara angka dan tombol */
   }
 
@@ -236,7 +259,7 @@
     margin-bottom: 300px;
     border-radius: 8px;
     padding: 16px;
-    margin-top: 80px;
+    margin-top: -60px;
     position: relative;
     width: 680px;
     height: 190px;

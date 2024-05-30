@@ -34,7 +34,7 @@
           <img src="{{ asset('/img/user.png') }}" alt="Icon 2">
           
         </div>
-        <span class="customer-name">Yu Ji Min</span>
+        <span class="customer-name">Achmad</span>
         <button class="menu-button" onclick="goToRoute('homepage')">Semua Menu</button>
         <button class="menu-button" onclick="showAbout()">Tentang Kami</button>
         <button class="menu-button3" onclick="logout()">Keluar Akun</button>

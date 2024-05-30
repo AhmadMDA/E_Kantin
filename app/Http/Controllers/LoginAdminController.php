@@ -9,27 +9,30 @@ use Illuminate\Routing\Controller;
 
 class LoginAdminController extends Controller
 {
+    private $adminCredentials = [
+        'username' => 'admin123', // example username
+        'password' => '12345', // example password
+    ];
+
     public function showLoginForm()
     {
         return view('auth.loginAdmin');
     }
 
-    public function login(Request $request)
+     public function login(Request $request)
     {
-        // Validasi input
         $request->validate([
-            'email' => 'required|email',
-            'password' => 'required',
+            'username' => 'required',
+            'password' => 'required|min:5|max:6',
         ]);
 
-        // Coba untuk login
-        $credentials = $request->only('email', 'password');
-        if (Auth::guard('admin')->attempt($credentials)) {
-            // Jika berhasil login, redirect ke halaman yang dituju
-            return redirect()->intended(route('Admin.BerandaAdmin'));
+        $username = $request->input('username');
+        $password = $request->input('password');
+
+        if ($username === $this->adminCredentials['username'] && $password === $this->adminCredentials['password']) {
+            return redirect()->route('Admin.BerandaAdmin');
         }
 
-        // Jika login gagal, kembali ke halaman login dengan pesan error
-        return back()->withErrors(['email' => 'Invalid credentials']);
+        return back()->withErrors(['message' => 'Invalid credentials.']);
     }
 }

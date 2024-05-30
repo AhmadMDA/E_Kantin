@@ -11,3 +11,4 @@ class TambahProductController extends Controller
         return view('Admin.TambahProduct');
     }
 }
+

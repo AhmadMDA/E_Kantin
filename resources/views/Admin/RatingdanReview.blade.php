@@ -28,9 +28,12 @@
         <div class="customer-icon">
             <img src="{{ asset('/img/user.png') }}" alt="Icon 2">
         </div>
-        <span class="customer-name">Yu Ji Min</span>
-        <button class="menu-button" onclick="showMenu('tahu-isi')">Tahu Isi</button>
-        <button class="menu-button" onclick="showMenu('martabak')">Martabak</button>
+        <span class="customer-name">Admin</span>
+        <button class="menu-button" onclick="goToRoute('BerandaAdmin')">Semua Menu</button>
+        <button class="menu-button" onclick="goToRoute('LaporanPenjualan')">Laporan penjualan</button>
+        <button class="menu-button" onclick="goToRoute('InputLaporan')">Input laporan penjualan</button>
+        <button class="menu-button" onclick="goToRoute('KelolaPesanan')">Kelola pesanan</button>
+        <button class="menu-button" onclick="goToRoute('KelolaAkunCustomer')">Kelola akun customer</button>
         <button class="menu-button3" onclick="logout()">Keluar Akun</button>
     </div>
 </div>
@@ -43,7 +46,7 @@
       <!-- Default content is shown here -->
       <div class="product">
           <div class="product-image">
-              <img src="{{ asset('/img/tahu_isi.jpg') }}" alt="Tahu Isi">
+              <img src="{{ asset('img/tahu isi.jpg') }}" alt="Tahu Isi">
           </div>
           <div class="product-details">
               <div class="card">
@@ -160,5 +163,36 @@
 
     // Load default content
     showMenu('tahu-isi');
+
+    
 </script>
 @endpush
+<script>
+    // Fungsi untuk mengarahkan pengguna ke rute yang sesuai
+    function goToRoute(routeName) {
+        switch(routeName) {
+            case 'BerandaAdmin':
+                window.location.href = '/BerandaAdmin';
+                break;
+            case 'LaporanPenjualan':
+                window.location.href = '/LaporanPenjualan/table';
+                break;
+            case 'InputLaporan':
+              window.location.href = '/InputLaporan';
+            break;
+            case 'KelolaPesanan':
+                window.location.href = '/KelolaPesanan';
+                break;
+            case 'KelolaAkunCustomer':
+                window.location.href = '/KelolaAkunCustomer';
+                break;
+            default:
+                break;
+        }
+    }
+    
+    // Fungsi untuk logout
+    function logout() {
+        window.location.href = '/Logout';
+    }
+    </script>  

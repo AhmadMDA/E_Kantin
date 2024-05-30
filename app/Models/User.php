@@ -11,13 +11,18 @@ class User extends Authenticatable
     use HasFactory, Notifiable;
 
     protected $fillable = [
-        'role', 'username', 'password',
+        'name', 'nik', 'phone', 'password',
     ];
 
     protected $hidden = [
         'password', 'remember_token',
     ];
 
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+    ];
+
+    // Relationships
     public function customer()
     {
         return $this->hasOne(Customer::class);

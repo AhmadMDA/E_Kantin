@@ -1,5 +1,3 @@
-<!-- resources/views/customer/login.blade.php -->
-
 @extends('layouts.app')
 
 <link rel="stylesheet" href="{{ asset('css/csKeranjang.css') }}">
@@ -22,138 +20,113 @@
         <img src="{{ asset('/img/check-out.png') }}" alt="cart" style="width: 55px; height: 55px;">
       </a>
     </div>
-    </div>
   </div>
 </div>
-    
-    <!-- Sidebar -->
-    <div class="sidebar" id="sidebar">
-      <button class="openSidebarButton" onclick="showSidebar()"> <img src="{{ asset('/img/menu.png') }}" alt="E Kantin Logo">
-      </button>
-      <div class="sidebar-content">
-        <div class="customer-icon">
-          <img src="{{ asset('/img/user.png') }}" alt="Icon 2">
-          
-        </div>
-        <span class="customer-name">Yu Ji Min</span>
-        <button class="menu-button" onclick="goToRoute('homepage')">Semua Menu</button>
-        <button class="menu-button" onclick="showAbout()">Tentang Kami</button>
-        <button class="menu-button3" onclick="logout()">Keluar Akun</button>
-      </div>
+
+<!-- Sidebar -->
+<div class="sidebar" id="sidebar">
+  <button class="openSidebarButton" onclick="showSidebar()"> <img src="{{ asset('/img/menu.png') }}" alt="E Kantin Logo">
+  </button>
+  <div class="sidebar-content">
+    <div class="customer-icon">
+      <img src="{{ asset('/img/user.png') }}" alt="Icon 2">
     </div>
+    <span class="customer-name">Achmad</span>
+    <button class="menu-button" onclick="goToRoute('homepage')">Semua Menu</button>
+    <button class="menu-button" onclick="showAbout()">Tentang Kami</button>
+    <button class="menu-button3" onclick="logout()">Keluar Akun</button>
+  </div>
+</div>
+
 <!-- Main content of your page -->
 <div class="content">
   <div class="description">Keranjang Anda</div>
   <span class="selamat">Ini isi keranjang anda, yuk segera di pesan!</span>
   
-  
-  <div class="card"  data-card-id="1">
+  <div class="card" data-card-id="1">
     <div class="cek-list">
       <button class="cek-button" onclick="ubahWarna()"></button>
     </div>
-    <img src="{{ asset('/img/Martabak.jpg') }}" alt="Martabak">
+    <img src="{{ asset('/img/tahu isi.jpg') }}" alt="Martabak">
     <div class="detail-produk">
-      <div class="nama-produk">Martabak</div>
+      <div class="nama-produk">Tahu isi</div>
       <div class="jumlah">
-        <div class="jumlah">
-          <button onclick="kurangiData()">-</button>
-          <span id="quantity">0</span>
-          <button onclick="tambahData()">+</button>
+        <button onclick="kurangiData()">-</button>
+        <span id="quantity">1</span>
+        <button onclick="tambahData()">+</button>
       </div>
-    </div>
-    <div class="harga-dan-hapus">
-      <div id="harga" class="harga">Rp 100.000</div>
-      <button class="hapus">hapus</button>
+      <div class="harga-dan-hapus">
+        <div id="harga" class="harga">Rp 2.500</div>
+        <button class="hapus">hapus</button>
+      </div>
     </div>
   </div>
+  <button id="pesanButton" class="pesan">Pesan</button>
+  <button class="kembali-button">Kembali</button>
 </div>
-<button class="pesan">Pesan</button>
-<button class="kembali-button">Kembali</button>
-  {{-- Footer --}}
-    <footer class="footer">
-      <div class="left-icons">
-        {{-- <img src="{{ asset('/img/KampusB.png') }}" alt="Icon 1"> 
-      <img src="{{ asset('/img/JTI.png') }}" alt="Icon 2"> --}}
-       </div>
-      <div class="right-text">
-        ©Kelompok 4-Sistem Informasi E-Kantin Jurusan Teknologi Informasi | D4 Sistem Informasi Bisnis | Politeknik Negeri Malang
-      </div>
-    </footer>
-  </body>
-    
-  <script>
-    function goToRoute(routeName) {
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="left-icons"></div>
+  <div class="right-text">
+    ©Kelompok 4-Sistem Informasi E-Kantin Jurusan Teknologi Informasi | D4 Sistem Informasi Bisnis | Politeknik Negeri Malang
+  </div>
+</footer>
+
+<script>
+  function goToRoute(routeName) {
     switch(routeName) {
-        case 'homepage':
-            window.location.href = '/homepage';
-            break;
-        case 'pesanan':
-          window.location.href = '/pesanan';
+      case 'homepage':
+        window.location.href = '/homepage';
         break;
-        case 'description':
-          window.location.href = '/description';
+      case 'pesanan':
+        window.location.href = '/pesanan';
         break;
-        case 'pembayaran':
-          window.location.href = '/pembayaran';
+      case 'description':
+        window.location.href = '/description';
+        break;
+      case 'pembayaran':
+        window.location.href = '/pembayaran';
         break;
     }
-}
+  }
+
   function logout() {
     window.location.href = '/Logout';
-}
+  }
 
-const kembaliButton = document.querySelector('.kembali-button');
-    kembaliButton.addEventListener('click', function() {
-    window.location.href = '/homepage'; 
-});
+  const kembaliButton = document.querySelector('.kembali-button');
+  kembaliButton.addEventListener('click', function() {
+    window.location.href = '/homepage';
+  });
 
-var data = 0; // Inisialisasi data
+  function tambahData() {
+    var quantityElement = document.getElementById("quantity");
+    var hargaElement = document.getElementById("harga");
 
-function tambahData() {
-data++;
-updateData();
-}
+    var quantity = parseInt(quantityElement.innerText);
+    var harga = 2500;
 
-function kurangiData() {
-if (data > 0) {
-    data--;
-    updateData();
-}
-}
+    quantity++;
+    quantityElement.innerText = quantity;
+    hargaElement.innerText = 'Rp ' + (harga * quantity).toLocaleString();
+  }
 
-function updateData() {
-var spanElement = document.querySelector('.jumlah span');
-spanElement.textContent = data;
-}
+  function kurangiData() {
+    var quantityElement = document.getElementById("quantity");
+    var hargaElement = document.getElementById("harga");
 
+    var quantity = parseInt(quantityElement.innerText);
+    var harga = 2500;
 
-function tambahData() {
-        var quantityElement = document.getElementById("quantity");
-        var hargaElement = document.getElementById("harga");
-
-        var quantity = parseInt(quantityElement.innerText);
-        var harga = parseInt(hargaElement.innerText.replace('Rp ', '').replace('.', ''));
-
-        quantity++;
-        quantityElement.innerText = quantity;
-        hargaElement.innerText = 'Rp ' + (harga + 100000).toLocaleString();
+    if (quantity > 1) {
+      quantity--;
+      quantityElement.innerText = quantity;
+      hargaElement.innerText = 'Rp ' + (harga * quantity).toLocaleString();
     }
+  }
 
-    function kurangiData() {
-        var quantityElement = document.getElementById("quantity");
-        var hargaElement = document.getElementById("harga");
-
-        var quantity = parseInt(quantityElement.innerText);
-        var harga = parseInt(hargaElement.innerText.replace('Rp ', '').replace('.', ''));
-
-        if (quantity > 0) {
-            quantity--;
-            quantityElement.innerText = quantity;
-            hargaElement.innerText = 'Rp ' + (harga - 100000).toLocaleString();
-        }
-    }
-
-    document.addEventListener('DOMContentLoaded', function () {
+  document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('.hapus').forEach(function(button) {
       button.addEventListener('click', function () {
         var card = button.closest('.card');
@@ -164,17 +137,10 @@ function tambahData() {
     });
   });
 
-  function kurangiData() {
-    var quantityElement = document.getElementById('quantity');
-    var currentQuantity = parseInt(quantityElement.textContent);
-    if (currentQuantity > 0) {
-      quantityElement.textContent = currentQuantity - 1;
-    }
-  }
-
-  function tambahData() {
-    var quantityElement = document.getElementById('quantity');
-    var currentQuantity = parseInt(quantityElement.textContent);
-    quantityElement.textContent = currentQuantity + 1;
-  }
+    // Add event listener for the "Pesan" button
+    const pesanButton = document.getElementById('pesanButton');
+  pesanButton.addEventListener('click', function() {
+    window.location.href = '{{ route("Customer.pesanan") }}';
+  });
 </script>
+@endsection

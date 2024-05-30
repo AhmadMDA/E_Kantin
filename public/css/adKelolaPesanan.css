@@ -12,7 +12,7 @@
   background-color: #F6BC13;
   width: 1248px;
   height: 78px;
-  margin-left: 65px;
+  margin-left: -65px;
   background-image: url('/img/kantin.png');
   background-repeat: no-repeat;
   background-position: left;
@@ -111,7 +111,7 @@
 
 /* Main content */
   .content {
-    margin-left: 159px; 
+    margin-left: 80px; 
     margin-top: 100px;
   }
   .description{
@@ -141,7 +141,7 @@
         border: 1px solid #DE5D01;
         padding: 8px;
         text-align: center;
-        width: 370px;
+        width: 480px;
         color: #DE5D01;
     }
 
@@ -163,18 +163,30 @@
         height: auto;
     }
 
-    .btn-aksi{
-    background-color: #F6BC13;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 80px;
-    height: 30px;
-    line-height: 0px;
-    text-align: justify;
-  }
+    .tablecs .btn-status {
+      background-color: #f08a24;
+      border: none;
+      color: white;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+    
+    .tablecs .btn-terima {
+      background-color: #f08a24;
+      border: none;
+      color: white;
+      padding: 5px 10px;
+      cursor: pointer;
+      margin-right: 5px;
+    }
+    
+    .tablecs .btn-tolak {
+      background-color: white;
+      border: 1px solid #f08a24;
+      color: #f08a24;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
 
   .btn-tambah{
     background-color: #F6BC13;

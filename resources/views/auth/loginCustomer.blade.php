@@ -39,7 +39,7 @@
                         <input type="text" name="username" placeholder="Username">
                         <input type="password" name="password" placeholder="Password">
                         <p>Anda tidak punya akun? Silahkan <span class="link" onclick="redirectToRegister()">masuk disini</span>.</p>
-                        <button type="submit" onclick="goToRoute('Customer.home')">Login</button>
+                        <button type="submit" >{{ __('Login') }}</button>
                     </form>
                     
                 </div>
@@ -60,9 +60,10 @@ function goToRoute(routeName) {
     }
 }
 
-    function redirectToRegister() {
-        window.location.href = "{{ route('register') }}";
-    }
+function redirectToRegister() {
+    window.location.href = "{{ route('register.form') }}";
+}
+
     function redirectTo(url) {
         window.location.href = url;
     }

@@ -1,10 +1,7 @@
-<!-- resources/views/customer/login.blade.php -->
-
 @extends('layouts.app')
 
 <link rel="stylesheet" href="{{ asset('css/login.css') }}">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-
 
 @section('content')
 <div class="container">
@@ -32,30 +29,25 @@
                         <button class="btn btn-warning" style="background-color: #DE5D01; color: white;" onclick="redirectTo('{{ route('login.Customer') }}')">Customer</button>
                         <button class="btn btn-warning" style="background-color: #DE5D01; color: white;" onclick="redirectTo('{{ route('login.Admin') }}')">Admin</button>
                     </div>
+                    @if (session('error'))
+                        <div class="alert alert-danger">
+                            {{ session('error') }}
+                        </div>
+                    @endif
                     <form method="POST" action="{{ route('login.post') }}">
                         @csrf
-                        <input type="text" name="nama" placeholder="Nama">
-                        <input type="password" name="password" placeholder="Password">
-                        <button type="submit" onclick="goToRoute('BerandaAdmin')">Login</button>
+                        <input type="text" name="username" placeholder="Nama" required>
+                        <input type="password" name="password" placeholder="Password" required>
+                        <button type="submit">Login</button>
                     </form>
                 </div>
             </div>
-            
         </div>
     </div>
 </div>
 @endsection
 <script>
-    function goToRoute(routeName) {
-        switch(routeName) {
-            case 'BerandaAdmin':
-                window.location.href = '/BerandaAdmin'; // Ganti '/' dengan URL halaman beranda Anda
-                break;
-            default:
-                break;
-        }
-    }
     function redirectTo(url) {
         window.location.href = url;
     }
-    </script>
+</script>

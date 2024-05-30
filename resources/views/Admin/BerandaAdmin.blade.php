@@ -27,7 +27,7 @@
           <img src="{{ asset('/img/user.png') }}" alt="Icon 2">
           
         </div>
-        <span class="customer-name">Yu Ji Min</span>
+        <span class="customer-name">Admin</span>
         <button class="menu-button" onclick="goToRoute('BerandaAdmin')">Semua Menu</button>
         <button class="menu-button" onclick="goToRoute('LaporanPenjualan')">Laporan penjualan</button>
         <button class="menu-button" onclick="goToRoute('InputLaporan')">Input laporan penjualan</button>

@@ -34,7 +34,7 @@
           <img src="{{ asset('/img/user.png') }}" alt="Icon 2">
           
         </div>
-        <span class="customer-name">Yu Ji Min</span>
+        <span class="customer-name">Achmad</span>
         <button class="menu-button" onclick="goToRoute('homepage')">Semua Menu</button>
         <button class="menu-button" onclick="showAbout()">Tentang Kami</button>
         <button class="menu-button3" onclick="logout()">Keluar Akun</button>
@@ -42,21 +42,21 @@
     </div>
 <!-- Main content of your page -->
 <div class="content">
-  <div class="description">Keranjang Anda</div>
-  <span class="selamat">Ini isi keranjang anda, yuk segera di pesan!</span>
+  <div class="description">Pesanan Anda</div>
+  <span class="selamat">Ini isi pesanan anda, yuk segera di pesan!</span>
   <div class="card">
-    <img src="{{ asset('/img/Martabak.jpg') }}" alt="Martabak">
+    <img src="{{ asset('/img/tahu isi.jpg') }}" alt="Tahu isi">
     <div class="detail-produk">
-      <div class="nama-produk">Nama Produk</div>
+      <div class="nama-produk">Tahu isi</div>
       <div class="jumlah">
         <div class="jumlah">
-          <button onclick="kurangiData()">-</button>
-          <span id="quantity">0</span>
-          <button onclick="tambahData()">+</button>
+          {{-- <button onclick="kurangiData()">-</button> --}}
+          <span id="quantity">2</span>
+          {{-- <button onclick="tambahData()">+</button> --}}
       </div>
     </div>
     <div class="harga-dan-hapus">
-      <div id="harga" class="harga">Rp 100.000</div>
+      <div id="harga" class="harga">Rp 5.000</div>
     </div>
   </div>
 

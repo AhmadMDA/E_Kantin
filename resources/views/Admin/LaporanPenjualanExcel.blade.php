@@ -109,39 +109,53 @@
         window.location.href = '/InputLaporan'; // Ganti 'beranda.html' dengan URL halaman beranda Anda
     });
 
-      // Data untuk bar chart (contoh)
-      var data = {
-          labels: ['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5', 'Item 6', 'Item 7', 'Item 8', 'Item 9', 'Item 10'],
-          datasets: [{
-              label: 'Data',
-              backgroundColor: '#DE5D01', // Warna batang
-              data: [12, 19, 3, 5, 2] // Data nilai
-          }]
-      };
-  
-      // Konfigurasi chart
-      var options = {
-      scales: {
-          yAxes: [{
-              ticks: {
-                  beginAtZero: true
-              }
-          }]
-      },
-      elements: {
-          line: {
-              borderWidth: 0 // Menghilangkan garis pada chart
-          }
-      }
+    // Generate labels for each day in May
+    var labels = [];
+    for (var i = 1; i <= 31; i++) {
+        labels.push('Mei ' + i);
+    }
+
+    // Sample data for Makanan and Minuman for each day in May
+    var makananData = [45, 40, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    var minumanData = [25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+    var data = {
+        labels: labels,
+        datasets: [
+            {
+                label: 'Makanan',
+                backgroundColor: '#DE5D01',
+                data: makananData
+            },
+            {
+                label: 'Minuman',
+                backgroundColor: '#1E88E5',
+                data: minumanData
+            }
+        ]
     };
-  
-      // Inisialisasi chart
-      var ctx = document.getElementById('bar-chart').getContext('2d');
-      var barChart = new Chart(ctx, {
-          type: 'bar',
-          data: data,
-          options: options
-      });
+
+    var options = {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        },
+        elements: {
+            line: {
+                borderWidth: 0
+            }
+        }
+    };
+
+    var ctx = document.getElementById('bar-chart').getContext('2d');
+    var barChart = new Chart(ctx, {
+        type: 'bar',
+        data: data,
+        options: options
+    });
 
     function toggleReportView() {
     var chartContainer = document.querySelector('.chart-container');

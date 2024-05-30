@@ -41,7 +41,7 @@ Route::post('/loginCustomer', [LoginCustomerController::class, 'login'])->name('
 
 Route::get('/Logout', [LoginCustomerController::class, 'showLoginForm'])->name('login.Customer');
 
-Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
+Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register.form');
 Route::post('/register', [RegisterController::class, 'register'])->name('register.post');
 
 Route::get('/homepage', [CustomerHomeController::class, 'home'])->name('Customer.home');
@@ -75,6 +75,7 @@ Route::get('/KelolaAkunCustomer', [KelolaAkunCustomerController::class, 'index']
 Route::get('/BerandaAdmin', [BerandaAdminController::class, 'index'])->name('Admin.BerandaAdmin');
 
 Route::get('/TambahProduct', [TambahProductController::class, 'index'])->name('Admin.TambahProduct');
+Route::post('/TambahProduct', [TambahProductController::class, 'store'])->name('Admin.TambahProduct.store');
 
 Route::get('/RatingdanReviewAdmin', [RatingdanReviewAdminController::class, 'index'])->name('Admin.RatingdanReview');
 
@@ -82,8 +83,10 @@ Route::get('/SuntingProduct', [SuntingProductController::class, 'index'])->name(
 
 Route::get('/LaporanPenjualan', [LaporanPenjualanController::class, 'showLaporanPenjualan'])->name('Admin.LaporanPenjualan');
 Route::get('/LaporanPenjualan/chart', [LaporanPenjualanController::class, 'chart'])->name('Admin.LaporanPenjualan.chart');
-Route::post('/LaporanPenjualan/table', [LaporanPenjualanController::class, 'table'])->name('Admin.LaporanPenjualan.table');
+Route::get('/LaporanPenjualan/table', [LaporanPenjualanController::class, 'table'])->name('Admin.LaporanPenjualan.table');
 Route::get('/LaporanPenjualan/export', [LaporanPenjualanController::class, 'export'])->name('Admin.LaporanPenjualan.export');
+Route::post('/LaporanPenjualan/tambah-penjualan/{idPesanan}', [LaporanPenjualanController::class, 'tambahPenjualan'])->name('Admin.LaporanPenjualan.tambahPenjualan');
+
 
 Route::get('/InputLaporan', [InputLaporanController::class, 'index'])->name('Admin.InputLaporan');
 Route::post('/InputLaporan/store', [InputLaporanController::class, 'store'])->name('Admin.InputLaporan.store');

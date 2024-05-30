@@ -34,7 +34,7 @@
           <img src="{{ asset('/img/user.png') }}" alt="Icon 2">
           
         </div>
-        <span class="customer-name">Yu Ji Min</span>
+        <span class="customer-name">Achmad</span>
         <button class="menu-button" onclick="goToRoute('homepage')">Semua Menu</button>
         <button class="menu-button" onclick="showAbout()">Tentang Kami</button>
         <button class="menu-button3" onclick="logout()">Keluar Akun</button>
@@ -50,10 +50,10 @@
             <div class="rekMenu">REKOMENDASI MENU</div>
               <div class="menu-grid">
                   <div class="menu-item">
-                    <img onclick="goToRoute('description')" src="{{ asset('/img/Martabak.jpg') }}" alt="Martabak">
+                    <img onclick="goToRoute('description')" src="{{ asset('/img/tahu isi.jpg') }}" alt="Martabak">
                     <div class="menu-details">
-                      <h2>Martabak</h2>
-                      <p class="price">Rp10,000</p>
+                      <h2>Tahu isi</h2>
+                      <p class="price">Rp2,500</p>
                   </div>
                       <p>Tahu isi ini berisi isian daging yang sangat gurih dan lezat. <a href="#" class="expand-link" onclick="expandDescription(this)">Selengkapnya</a></p>
                   <div class="rating-and-pesan">
@@ -62,9 +62,9 @@
                   </div>
                   </div>
                   <div class="menu-item">
-                    <img onclick="goToRoute('description')" src="{{ asset('/img/Martabak.jpg') }}" alt="Martabak">
+                    <img onclick="goToRoute('description')" src="{{ asset('/img/Sosis solo.jpeg') }}" alt="Martabak">
                     <div class="menu-details">
-                      <h2>Nasi Goreng</h2>
+                      <h2>Sosis solo</h2>
                       <p class="price">Rp10,000</p>
                   </div>
                       <p>Sosis Solo adalah makanan khas Solo yang berbahan dasar daging sapi cincang.</p>
@@ -76,10 +76,10 @@
                   <div class="menu-item">
                     <img onclick="goToRoute('description')" src="{{ asset('/img/Martabak.jpg') }}" alt="Martabak">
                     <div class="menu-details">
-                      <h2>Nasi Goreng</h2>
+                      <h2>Martabak</h2>
                       <p class="price">Rp10,000</p>
                    </div>
-                      <p>Nasi goreng adalah hidangan berupa nasi yang digoreng dengan bumbu khas.</p>
+                      <p>Martabak adalah hidangan berupa nasi yang digoreng dengan bumbu khas.</p>
                   <div class="rating-and-pesan">
                     <div class="rating">★★★★★</div>
                     <button class="pesan-button">Pesan</button>
@@ -100,7 +100,7 @@
                   <div class="menu-item">
                     <img onclick="goToRoute('description')" src="{{ asset('/img/Martabak.jpg') }}" alt="Martabak">
                     <div class="menu-details">
-                      <h2>Nasi Goreng</h2>
+                      <h2>Martabak</h2>
                       <p class="price">Rp10,000</p>
                   </div>
                       <p>Tahu isi ini berisi isian daging yang sangat gurih dan lezat. <a href="#" class="expand-link" onclick="expandDescription(this)">Selengkapnya</a></p>
@@ -112,7 +112,7 @@
                   <div class="menu-item">
                     <img onclick="goToRoute('description')" src="{{ asset('/img/Martabak.jpg') }}" alt="Martabak">
                     <div class="menu-details">
-                      <h2>Nasi Goreng</h2>
+                      <h2>Martabak</h2>
                       <p class="price">Rp10,000</p>
                   </div>
                       <p>Martabak ini sangat enak dengan isian coklat dan keju yang meleleh.</p>
@@ -124,7 +124,7 @@
                   <div class="menu-item">
                     <img onclick="goToRoute('description')" src="{{ asset('/img/Martabak.jpg') }}" alt="Martabak">
                     <div class="menu-details">
-                      <h2>Nasi Goreng</h2>
+                      <h2>Martabak</h2>
                       <p class="price">Rp10,000</p>
                   </div>
                       <p>Tahu isi ini berisi isian daging yang sangat gurih dan lezat. <a href="#" class="expand-link" onclick="expandDescription(this)">Selengkapnya</a></p>
@@ -136,7 +136,7 @@
                   <div class="menu-item">
                     <img onclick="goToRoute('description')" src="{{ asset('/img/Martabak.jpg') }}" alt="Martabak">
                     <div class="menu-details">
-                      <h2>Nasi Goreng</h2>
+                      <h2>Martabak</h2>
                       <p class="price">Rp10,000</p>
                   </div>
                       <p>Tahu isi ini berisi isian daging yang sangat gurih dan lezat. <a href="#" class="expand-link" onclick="expandDescription(this)">Selengkapnya</a></p>

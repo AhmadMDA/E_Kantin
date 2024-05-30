@@ -27,7 +27,7 @@
           <img src="{{ asset('/img/user.png') }}" alt="Icon 2">
           
         </div>
-        <span class="customer-name">Yu Ji Min</span>
+        <span class="customer-name">Admin</span>
         <button class="menu-button" onclick="goToRoute('BerandaAdmin')">Semua Menu</button>
         <button class="menu-button" onclick="goToRoute('LaporanPenjualan')">Laporan penjualan</button>
         <button class="menu-button" onclick="goToRoute('InputLaporan')">Input laporan penjualan</button>
@@ -39,26 +39,26 @@
     </div>
 <!-- Main content of your page -->
     <div class="content">
-        <div class="description">HI. AHMAD MAULANA DANI AKBAR!!</div>
+        <div class="description">HI. Achmad!!</div>
           <span class="selamat">Selamat Datang di E-Kantin Jurusan Teknologi Informasi</span>
         <div class="tablecs">
             <table>
                 <thead>
                     <tr>
                         <th>ID Customer</th>
-                        <th>Nama Produk</th>
+                        <th>Nama Customer</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td><div class="tb">Nagi Goreng Enak Cuyy</div></td>
-                        <td></td>
-                        <td><button class="btn-aksi">Ready</button><span><button class="btn-aksi">Ready</button></span></td>
+                        <td><div class="tb">2141762031</div></td>
+                        <td><div class="tb">Achmad</div></td>
+                        <td><button class="btn-aksi">hapus</button></td>
                     </tr>
                 </tbody>
             </table>
-            <button class="btn-tambah">tambah</button>
+           
         </div>
     
 </div>
