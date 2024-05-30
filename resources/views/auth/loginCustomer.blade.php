@@ -36,8 +36,8 @@
                     </div>
                     <form action="{{ route('Customer.home') }}" method="get">
                         {{ csrf_field() }}
-                        <input type="text" name="username" placeholder="Username">
-                        <input type="password" name="password" placeholder="Password">
+                        <input type="text" name="username" placeholder="Username" required>
+                        <input type="password" name="password" placeholder="Password" required>
                         <p>Anda tidak punya akun? Silahkan <span class="link" onclick="redirectToRegister()">masuk disini</span>.</p>
                         <button type="submit" >{{ __('Login') }}</button>
                     </form>

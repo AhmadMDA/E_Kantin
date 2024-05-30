@@ -13,29 +13,23 @@ class LoginCustomerController extends Controller
     }
 
     public function login(Request $request)
-    {
-        $request->validate([
-            'username' => 'required',
-            'password' => 'required|max:6',
-        ],[
-            'username.required' => 'Username harus diisi',
-            'password.required' => 'Password harus diisi',
-        ]);
+{
+    $request->validate([
+        'username' => 'required',
+        'password' => 'required|max:6',
+    ],[
+        'username.required' => 'Username harus diisi',
+        'password.required' => 'Password harus diisi',
+        'password.max' => 'Password maksimal 6 karakter',
+    ]);
 
-        $credentials = $request->only('username', 'password');
+    $credentials = $request->only('username', 'password');
 
-        if (Auth::attempt($credentials)) {
-            session(['role' => 'customer']);
-            return redirect()->route('Customer.home');
-        } else {
-            return back()->withErrors(['message' => 'Invalid credentials.']);
-        }
+    if (Auth::attempt($credentials)) {
+        session(['role' => 'customer']);
+        return redirect()->route('Customer.home');
+    } else {
+        return back()->withErrors(['message' => 'Invalid credentials.']);
     }
-
-    public function logout()
-    {
-        Auth::logout();
-        session()->forget('role');
-        return redirect()->route('login.Customer');
-    }
+}
 }

@@ -59,7 +59,7 @@
                     <td>Tahu Isi</td>
                     <td>Gorengan</td>
                     <td>Rp2.500</td>
-                    <td>50 pcs</td>
+                    <td>20 pcs</td>
                     <td><a href="{{ route('Admin.RatingdanReview') }}">4.9/5<br>Lihat review</a></td>
                     <td><button class="status-btn">Ready</button></td>
                     <td>
